@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh_ngay_trong_thang</title>
+</head>
+<body>
+<p>Tính số ngày trong tháng:</p>
+<input id="month" type="number" placeholder="Nhập vào tên tháng" style="margin-bottom: 10px"><br>
+<button id="btn">Kiểm tra</button>
+<p id="result"></p>
+</body>
+</html>
+<script>
+    let btn = document.getElementById('btn');
+    let result = document.getElementById('result');
+    btn.addEventListener('click', on_click)
+
+    function on_click() {
+        let month = +document.getElementById('month').value;
+        if (Number.isInteger(month) && month > 0 && month < 13) {
+            switch (month) {
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    console.log(month);
+                    result.innerHTML = `Tháng ${month} có 30 ngày`;
+                    break;
+
+                case 2:
+                    result.innerHTML = `Tháng ${month} có 28 hoặc 29 ngày`;
+                    break;
+                default:
+                    result.innerHTML = `Tháng ${month} có 31 ngày`;
+            }
+        } else
+            result.innerHTML = `Không hợp lệ, vui lòng nhập lại`;
+    }
+</script>
